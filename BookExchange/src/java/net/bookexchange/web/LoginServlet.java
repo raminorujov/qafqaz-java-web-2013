@@ -19,6 +19,7 @@ import net.bookexchange.database.MySqlLoginDao;
 import net.bookexchange.domain.User;
 import net.bookexchange.service.DefaultLoginService;
 import net.bookexchange.service.LoginService;
+import net.bookexchange.utility.EncryptionUtility;
 
 /**
  *
@@ -43,7 +44,7 @@ public class LoginServlet extends HttpServlet {
                 DataSource ds = DatabaseUtility.connect();
                 LoginDao loginDao = new MySqlLoginDao(ds);
                 LoginService loginService = new DefaultLoginService(loginDao);
-                User user = loginService.login(username, password);
+                User user = loginService.login(username, EncryptionUtility.sha1(password));
                 HttpSession session = request.getSession();
                 
                 if(user != null) {                    
@@ -52,7 +53,7 @@ public class LoginServlet extends HttpServlet {
                     response.sendRedirect("index.jsp");
                     System.out.println("user " + user.getUsername() + " successfully logged in");
                 } else {
-                    System.out.println("Invalid user and password. user " + user.getUsername());                    
+                    System.out.println("Invalid user and password. user " + username);                    
                     response.sendRedirect("login.jsp");
                 }
                                 
@@ -60,7 +61,8 @@ public class LoginServlet extends HttpServlet {
                 System.out.println("Username or password is invalid");
                 response.sendRedirect("login.jsp");
             }
-        } catch(Exception e) {            
+        } catch(Exception e) {  
+            e.printStackTrace();
             response.sendRedirect("error.jsp");
         } finally {            
             out.close();

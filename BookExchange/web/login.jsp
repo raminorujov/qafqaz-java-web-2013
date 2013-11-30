@@ -24,7 +24,7 @@
                             <fieldset>
                                 <div class="input-prepend" title="Username" data-rel="tooltip">
                                     <span class="add-on"><i class="icon-user"></i></span>
-                                    <input autofocus class="input-large span10" name="username" id="username" type="text" value="" />
+                                    <input autofocus class="input-large span10" name="username" id="username" type="text" value="" />                                     
                                 </div>
                                 <div class="clearfix"></div>
 

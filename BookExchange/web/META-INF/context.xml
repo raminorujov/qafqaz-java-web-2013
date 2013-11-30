@@ -7,13 +7,13 @@
               driverClassName="com.mysql.jdbc.Driver"
               url="jdbc:mysql://localhost:3306/BookExchange"
               username="book" 
-              password="123456" 
+              password="12345" 
               maxActive="20" 
               maxIdle="10"
               maxWait="-1"/>  
     
     <!--Oracle-->
-     <Resource name="jdbc/bookExchange" auth="Container"
+<!--     <Resource name="jdbc/bookExchange" auth="Container"
               type="javax.sql.DataSource"
               driverClassName="oracle.jdbc.driver.OracleDriver"
               url="jdbc:oracle:thin:@localhost:1521:ORCL"
@@ -24,6 +24,6 @@
               logAbandoned="true"
               maxActive="3"
               maxIdle="1"
-              maxWait="10000"/>
+              maxWait="10000"/>-->
     
 </Context>

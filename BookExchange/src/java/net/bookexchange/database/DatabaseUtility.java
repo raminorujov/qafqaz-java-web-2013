@@ -34,9 +34,17 @@ public class DatabaseUtility {
     
     public static void close(ResultSet rs, PreparedStatement ps, Connection con) {
         try {
-            rs.close();
-            ps.close();
-            con.close();
+            if(rs != null) {
+                rs.close();
+            }
+            
+            if(ps != null) {
+                ps.close();
+            }
+            
+            if(con != null) {
+                con.close();
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

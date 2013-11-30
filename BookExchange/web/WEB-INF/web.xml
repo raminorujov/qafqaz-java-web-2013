@@ -8,14 +8,22 @@
         <servlet-name>ControllerServlet</servlet-name>
         <servlet-class>net.bookexchange.web.ControllerServlet</servlet-class>
     </servlet>
+    
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/cs</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
